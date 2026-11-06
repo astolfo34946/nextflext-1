@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: redeem-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: UPSTREAM_URL
+        value: https://www.vaultedkeys.shop/api/redeem
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: RATE_LIMIT_PER_MIN
+        value: "5"
